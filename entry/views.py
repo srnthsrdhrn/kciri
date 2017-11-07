@@ -38,5 +38,6 @@ class FetchEntries(APIView):
             dict['date'] = entry.created_at
             dict['quality'] = entry.quality
             dict['quantity'] = entry.quantity
+            dict['transaction_id'] = entry.id
             data.append(dict)
         return Response(data)
