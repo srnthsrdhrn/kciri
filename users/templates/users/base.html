@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>
+        {% block title %} KCIRI Looms{% endblock %}
+
+    </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load staticfiles %}
+
+
+{% block styling %}
+	<link href="{% static "theme/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css" />
+
+	<link href="{% static "theme/css/style.css" %}" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+   textarea, textarea.form-control
+    {
+        height: 150px;
+    }
+
+    h1,h2,h3{
+        color: #d76c6c;
+    }
+    .dateinput
+    {
+        position: relative;
+    }
+    .table-responsive{
+    overflow: visible !important
+    }
+
+
+    </style>
+
+{% endblock %}
+
+{% block extraHead %}
+
+{% endblock %}
+
+
+</head>
+
+
+<body class="bgshade">
+<div class="container">
+
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %}
+
+</div>
+
+
+{% block content %}
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static "theme/js/jquery.min.js" %}"></script>
+<script src="{%  static "theme/js/bootstrap.min.js" %}"></script>
+
+{% endblock %}
+</body>
+
+
+</html>
