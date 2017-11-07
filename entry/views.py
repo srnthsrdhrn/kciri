@@ -27,3 +27,16 @@ class EntryAPI(APIView):
         return Response({'error', 'Employee ID Parameter Missing'}, status=400)
 
 
+class FetchEntries(APIView):
+    def get(self, request):
+        entries = DataEntry.objects.all()
+        data = []
+        for entry in entries:
+            dict = {}
+            dict['employee'] = entry.employee.first_name
+            dict['supervisor'] = entry.created_by.first_name
+            dict['date'] = entry.created_at
+            dict['quality'] = entry.quality
+            dict['quantity'] = entry.quantity
+            data.append(dict)
+        return Response(data)
