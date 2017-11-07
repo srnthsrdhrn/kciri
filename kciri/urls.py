@@ -22,6 +22,7 @@ from entry import views as entry_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^createUser', views.createUser),
+    url(r'^fetch_entry', entry_views.FetchEntries.as_view()),
     url(r'^createEntry', entry_views.EntryAPI.as_view()),
     url(r'^login', views.LoginView.as_view())
 ]
